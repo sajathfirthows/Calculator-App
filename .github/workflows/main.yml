@@ -18,10 +18,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        # use newer configure-pages to pick up latest dependencies
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        # use upload-pages-artifact v2 to avoid older transitive dependency on upload-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./
 
